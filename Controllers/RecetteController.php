@@ -2,6 +2,7 @@
 require_once "Controllers/NavController.php";
 require_once "Models/CategorieModel.php";
 require_once "Models/RecetteModel.php";
+require_once "Models/LikeModel.php";
 class RecetteController extends NavController{
     // methode pour afficher le formulaire d'ajout de recette
     public function ajoutForm(){
@@ -34,5 +35,17 @@ class RecetteController extends NavController{
     // methode pour recuperer la liste des recettes
     public function listRecette(){
         return $recettes = RecetteModel::listRecette();
+    }
+
+    // methode pour liker une recette
+    public function like(){
+        LikeModel::like($_GET['id_user'], $_GET['id_recette']);
+        header("Location: ?url=home");
+    }
+
+    // methode pour noter une recette
+    public function note(){
+        NoteModel::note($_SESSION['user']['id_user'], $_POST['id_recette'], $_POST['note']);
+        header("Location: ?url=home");
     }
 }

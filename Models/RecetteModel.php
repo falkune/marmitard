@@ -17,11 +17,12 @@ class RecetteModel{
     public static function listRecette(){
         $db = Connect::dbConnect();
         $request = $db->prepare(
-            "SELECT recettes.titre as titre, recettes.id_recette as id_recette, recettes.description as description, recettes.image as image, categories.nom as nom_categorie, users.nom as nom_auteur, users.id_user as id_user, COUNT(likes.id_like) as nbr_like
+            "SELECT recettes.titre as titre, recettes.id_recette as id_recette, recettes.description as description, recettes.image as image, categories.nom as nom_categorie, users.nom as nom_auteur, users.id_user as id_user, COUNT(likes.id_like) as nbr_like, AVG(notes.note) as note
             FROM recettes
             JOIN categories ON recettes.categorie = categories.id_categorie
             JOIN users ON recettes.auteur = users.id_user
             LEFT JOIN likes ON recettes.id_recette = likes.recette
+            LEFT JOIN notes ON recettes.id_recette = notes.recette
             GROUP BY recettes.id_recette");
         $request->execute();
         $recettes = $request->fetchAll();

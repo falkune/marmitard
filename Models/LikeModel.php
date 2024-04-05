@@ -11,6 +11,5 @@ class LikeModel{
             $request = $db->prepare("INSERT INTO likes (likeur, recette) VALUES (?,?)");
             $request->execute(array($user_id, $recette_id));
         }
-        return true;
     }
 }
