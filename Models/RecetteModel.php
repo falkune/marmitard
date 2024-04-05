@@ -12,4 +12,13 @@ class RecetteModel{
             return false;
         }
     }
+
+    // pour recuperer les recettes
+    public static function listRecette(){
+        $db = Connect::dbConnect();
+        $request = $db->prepare("SELECT * FROM recettes");
+        $request->execute();
+        $recettes = $request->fetchAll();
+        return $recettes;
+    }
 }

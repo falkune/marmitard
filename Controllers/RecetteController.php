@@ -28,9 +28,11 @@ class RecetteController extends NavController{
                     echo "une ereur";
                 }
             }
-
         }
-
     }
 
+    // methode pour recuperer la liste des recettes
+    public function listRecette(){
+        $recettes = RecetteModel::listRecette();
+    }
 }
