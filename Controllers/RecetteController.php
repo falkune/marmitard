@@ -33,6 +33,6 @@ class RecetteController extends NavController{
 
     // methode pour recuperer la liste des recettes
     public function listRecette(){
-        $recettes = RecetteModel::listRecette();
+        return $recettes = RecetteModel::listRecette();
     }
 }
