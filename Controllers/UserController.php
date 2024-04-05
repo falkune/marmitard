@@ -11,6 +11,7 @@ class UserController extends NavController{
     public function register(){
         if(isset($_POST['inscription'])){
             UserModel::register();
+            header("Location: ?url=home");
         }
     }
     // affichage du fomulaire de connexion
@@ -27,10 +28,16 @@ class UserController extends NavController{
             }else{
                 if(password_verify($_POST['password'], $user['mdp'])){
                     $_SESSION['user'] = $user;
+                    header("Location: ?url=home");
                 }
             }
         }
-        
+    }
+
+    // la fonction logout (deconnect l'utilisateur)
+    public function logout(){
+        session_destroy();
+        header("Location: ?url=home");
     }
 
 }

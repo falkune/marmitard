@@ -17,6 +17,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="?url=ajout_recette">Creer Recette</a>
+      </li>
         <?php if(isset($_SESSION['user'])){ ?>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"><?= $_SESSION['user']['prenom']; ?></a>
@@ -45,9 +48,6 @@
                 </li>
            <?php } ?> 
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

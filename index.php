@@ -2,6 +2,7 @@
 session_start();
 require_once 'Controllers/HomeController.php';
 require_once 'Controllers/UserController.php';
+require_once 'Controllers/RecetteController.php';
 // recuperer l'url
 $url = (isset($_GET['url'])) ? $_GET['url'] : 'home';
 // if(isset($_GET['url'])){
@@ -30,6 +31,14 @@ switch($url){
     case "login": // valide le formulaire de connexion
         $controller = new UserController();
         $controller->login();
+        break;
+    case 'logout': // permet de deconnecter le user
+        $controller = new UserController();
+        $controller->logout();
+        break;
+    case 'ajout_recette': // permet d'afficher le formulaire d'ajour de recette
+        $controller = new RecetteController();
+        $controller->ajoutForm();
         break;
     default:
         echo "404 not found!";
