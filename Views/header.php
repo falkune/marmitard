@@ -17,16 +17,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <?php if(isset($_SESSION['user'])){ ?>
           <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="?url=ajout_recette">Creer Recette</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><?= $_SESSION['user']['prenom']; ?></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="?url=logout">Deconnexion</a>
-            </li>
+            <a class="nav-link active" aria-current="page" href="?url=ajout_recette">Creer Recette</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><?= $_SESSION['user']['prenom']; ?></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?url=logout">Deconnexion</a>
+          </li>
         <?php } else{?>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="?url=inscription">Iscription</a>

@@ -2,7 +2,7 @@
 <form action="?url=add" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Titre</label>
-        <input type="email" name="titre" class="form-control">
+        <input type="text" name="titre" class="form-control">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Description</label>
@@ -15,8 +15,9 @@
     </div>
     <!-- liste ingredients -->
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Liste ingredients</label>
-        <input type="text" id="liste_ingredient" name="ingredient" class="form-control" disabled>
+        <label for="exampleInputEmail1" class="form-label">Liste ingredients</label> <br>
+        <input type="text" id="liste_ingredient" name="ingredient" class="form-control" hidden>
+        <textarea class="form-control" id="liste_ingredient_text" disabled></textarea>
     </div>
     <!-- image -->
     <div class="input-group mb-3">
@@ -27,7 +28,7 @@
     <!-- categorie -->
     <div class="input-group mb-3">
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
-    <select class="form-select" id="inputGroupSelect01">
+    <select class="form-select" name="categorie">
         <option value="">Selectionnez une categorie</option>
         <?php foreach ($categories as $categorie){ ?>
             <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['nom'] ?></option>
@@ -43,11 +44,14 @@
         e.preventDefault();
         let item = document.getElementById("ingredient").value;
 
+        const LISTETEXT = document.getElementById("liste_ingredient_text");
         const LISTE = document.getElementById("liste_ingredient");
         if(LISTE.value == ''){
             LISTE.value = item
+            LISTETEXT.value = item;
         }else{
             LISTE.value +=","+item;
+            LISTETEXT.value +=","+item;
         }
 
         document.getElementById("ingredient").value = "";
