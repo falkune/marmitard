@@ -3,6 +3,7 @@ require_once "Controllers/NavController.php";
 require_once "Models/CategorieModel.php";
 require_once "Models/RecetteModel.php";
 require_once "Models/LikeModel.php";
+require_once "Models/NoteModel.php";
 class RecetteController extends NavController{
     // methode pour afficher le formulaire d'ajout de recette
     public function ajoutForm(){
@@ -46,6 +47,6 @@ class RecetteController extends NavController{
     // methode pour noter une recette
     public function note(){
         NoteModel::note($_SESSION['user']['id_user'], $_POST['id_recette'], $_POST['note']);
-        header("Location: ?url=home");
+        // header("Location: ?url=home");
     }
 }

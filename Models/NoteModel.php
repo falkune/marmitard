@@ -7,9 +7,16 @@ class NoteModel{
         $request = $db->prepare("SELECT * FROM notes WHERE user = ? AND recette = ?");
         $request->execute(array($user_id, $recette_id));
         $resultat = $request->fetch();
+
+        var_dump($recette_id);
+
         if(empty($resultat)){
-            $request = $db->prepare("INSERT INTO notes (user, recette, note) VALUES (?,?,?)");
-            $request->execute(array($user_id, $recette_id, $note));
+            try{
+                $request = $db->prepare("INSERT INTO notes (user, recette, note) VALUES (?,?,?)");
+                $request->execute(array($user_id, $recette_id, $note));
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
         }
     }
 }
