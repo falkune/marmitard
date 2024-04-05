@@ -21,4 +21,5 @@ class RecetteModel{
         $recettes = $request->fetchAll();
         return $recettes;
     }
+    
 }
