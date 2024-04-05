@@ -40,6 +40,10 @@ switch($url){
         $controller = new RecetteController();
         $controller->ajoutForm();
         break;
+    case 'add':
+        $controller = new RecetteController();
+        $controller->add();
+        break;
     default:
         echo "404 not found!";
 }

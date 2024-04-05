@@ -1,5 +1,5 @@
 <div class="container">
-<form>
+<form action="?url=add" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Titre</label>
         <input type="email" name="titre" class="form-control">
