@@ -44,6 +44,10 @@ switch($url){
         $controller = new RecetteController();
         $controller->add();
         break;
+    case 'like':
+        $controller = new RecetteController();
+        $controller->like();
+        break;
     default:
         echo "404 not found!";
 }

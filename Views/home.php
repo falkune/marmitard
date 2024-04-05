@@ -8,7 +8,7 @@
                 <p class="card-text">Type de recette: <?= $recette['nom_categorie'] ?></p>
                 <span>
                     <?= $recette['nbr_like'] ?> Likes 
-                    <a href="?url=like&id_recette=<?= $recette['id_recette'] ?>&id_user=<?= $recette['id_user'] ?>">liker</a>
+                    <a href="?url=like&id_recette=<?= $recette['id_recette'] ?>&id_user=<?= $recette['id_user'] ?>"><i class="fa-solid fa-heart"></i></a>
                 </span> <br>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
