@@ -8,20 +8,33 @@
         <label for="exampleInputPassword1" class="form-label">Description</label>
         <textarea name="description" class="form-control"> </textarea>
     </div>
-    
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Saisir les ingredients</label>
-        <input type="text" id="ingredient" class="form-control">
-        <button id="add">add</button>
-    </div>
 
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="ingredient" id="ingredient">
+        <button class="btn btn-outline-secondary" id="add">Button</button>
+    </div>
+    <!-- liste ingredients -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Liste ingredients</label>
         <input type="text" id="liste_ingredient" name="ingredient" class="form-control" disabled>
     </div>
-
+    <!-- image -->
+    <div class="input-group mb-3">
+        <label class="input-group-text">Upload</label>
+        <input type="file" name="image" class="form-control" >
+    </div>
    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- categorie -->
+    <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    <select class="form-select" id="inputGroupSelect01">
+        <option value="">Selectionnez une categorie</option>
+        <?php foreach ($categories as $categorie){ ?>
+            <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['nom'] ?></option>
+        <?php } ?> 
+    </select>
+    </div>
+    <button type="submit" name="ajout_recette" class="btn btn-primary">Ajouter</button>
     </form>
 </div>
 
@@ -36,7 +49,7 @@
         }else{
             LISTE.value +=","+item;
         }
-        
+
         document.getElementById("ingredient").value = "";
     })
 </script>
