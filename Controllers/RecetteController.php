@@ -47,6 +47,6 @@ class RecetteController extends NavController{
     // methode pour noter une recette
     public function note(){
         NoteModel::note($_SESSION['user']['id_user'], $_POST['id_recette'], $_POST['note']);
-        // header("Location: ?url=home");
+        header("Location: ?url=home");
     }
 }

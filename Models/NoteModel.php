@@ -8,8 +8,6 @@ class NoteModel{
         $request->execute(array($user_id, $recette_id));
         $resultat = $request->fetch();
 
-        var_dump($recette_id);
-
         if(empty($resultat)){
             try{
                 $request = $db->prepare("INSERT INTO notes (user, recette, note) VALUES (?,?,?)");

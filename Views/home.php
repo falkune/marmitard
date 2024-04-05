@@ -9,14 +9,9 @@
                 <p class="card-text">Type de recette: <?= $recette['nom_categorie'] ?></p>
                 <p class="card-text">
                     Note: <?= ceil($recette['note']) ?>
-                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="a_noter" value="<?= $recette['id_recette'] ?>" href="?id=dhj">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="a_noter" value="<?= $recette['id_recette'] ?>">
                         Noté
-                    </a>
-                    <!-- <form method="post">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="a_noter" value="<?= $recette['id_recette'] ?>">
-                        Noté
-                        </button>
-                    </form> -->
+                    </button>
                 </p>
                 <span>
                     <?= $recette['nbr_like'] ?> Likes 
@@ -39,10 +34,10 @@
         <div class="modal-body">
             <form action="?url=note" method="post">
                 <div class="form-group">
-                    <input type="text" name="id_recette" value="<?= $_GET['id'] ?>" hidden>
+                    <input type="text" name="id_recette" id="id_recette" value="" hidden>
                     <input class="form-control" type="number" name="note" max="10" min="1">
                 </div>
-                <button class="btn btn-primary">Save changes</button>
+                <button class="btn btn-secondary">Save changes</button>
             </form>
         </div>
     </div>
@@ -51,10 +46,15 @@
 
 </body>
 </html>
-<?php
 
-if(isset($_GET['id'])){
-    var_dump($_GET['id']);
 
-}
-?>
+<script>
+
+    let listBtn = document.getElementsByClassName("btn-primary");
+
+    for(let i = 0; i < listBtn.length; i++){
+        listBtn[i].addEventListener('click', (e) => {
+            document.getElementById("id_recette").value = e.target.value;
+        })
+    }
+</script>
