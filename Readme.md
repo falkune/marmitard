@@ -1,0 +1,36 @@
+# recettes
+    - id
+    - nom
+    - liste ingredient
+    - description
+    - statut
+    - photos
+    - id_user
+    - id_categorie
+# utilisateurs
+    - id
+    - nom
+    - prenom
+    - email
+    - age
+    - mdp
+    - sexe
+    - photo_profil
+    - status
+# commentaires
+    - id
+    - comentaire
+    - id_user
+    - id_recette
+# notes
+    - id
+    - id_user
+    - id_recette
+# categories
+    - id
+    - nom
+    - description
+# likes
+    - id
+    - id_user
+    - id_recette
