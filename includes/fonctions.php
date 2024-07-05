@@ -26,3 +26,16 @@ function getValidatedRecette(){
     $recetteList = $request->fetchAll();
     return $recetteList;
 }
+
+// fonction qui permet de recuperer les infos d'une rectte particuliere
+function getRecetteDetails($idRecette){
+    // etablir la connexion avec la base de donnees
+    $dbConnexion = dbConnexion();
+    // preparer la requete qui permet de recuperer la liste des categories
+    $request = $dbConnexion->prepare("SELECT * FROM recettes WHERE id = ?");
+    // executer la requete
+    $request->execute([$idRecette]);
+    // recuperer le resultat de le requete dans un tableau 
+    $recette = $request->fetch();
+    return $recette;
+}

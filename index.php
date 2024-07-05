@@ -8,14 +8,15 @@ require_once "includes/navbar.php";
 
 
 
-<div class="d-flex">
+<div class="container d-flex">
     <?php foreach($recettes as $rec) { ?>
         <div class="card" style="width: 18rem;">
         <img src="imgs/<?= $rec['photos'] ?>" class="card-img-top" alt="<?= $rec['photos'] ?>">
         <div class="card-body">
             <h5 class="card-title"><?= $rec['nom'] ?></h5>
-            
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <span><i class="fa-regular fa-thumbs-up"></i></span>
+            <span><i class="fa-solid fa-star"></i></span>
+            <a href="#" class="btn btn-primary">Voir plus</a>
         </div>
         </div>
     <?php } ?>
