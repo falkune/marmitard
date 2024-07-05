@@ -39,3 +39,16 @@ function getRecetteDetails($idRecette){
     $recette = $request->fetch();
     return $recette;
 }
+
+// fonction qui permet de recuperer la liste des recette dont le status est false
+function getUnValidatedRecette(){
+    // etablir la connexion avec la base de donnees
+    $dbConnexion = dbConnexion();
+    // preparer la requete qui permet de recuperer la liste des categories
+    $request = $dbConnexion->prepare("SELECT * FROM recettes WHERE statut = ?");
+    // executer la requete
+    $request->execute([0]);
+    // recuperer le resultat de le requete dans un tableau 
+    $recetteList = $request->fetchAll();
+    return $recetteList;
+}

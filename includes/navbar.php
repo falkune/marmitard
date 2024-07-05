@@ -40,9 +40,9 @@ define("BASE_URL", "http://localhost/marmitard/");
                 <?php } ?>
 
                 <!-- cette partie doit etre visble uniquement si l'utilisateur est un Admin -->
-                <?php if(isset($_SESSION['id_user']) && $_SESSION['statut'] == "Admin"){ ?>
+                <?php if(isset($_SESSION['id_user']) && $_SESSION['status'] == "Admin"){ ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_URL ?>views/ajout_recette.php">Ajouter une recette</a>
+                        <a class="nav-link" href="<?= BASE_URL ?>views/liste_recette.php">Liste Recette</a>
                     </li>
                 <?php } ?>
             </ul>

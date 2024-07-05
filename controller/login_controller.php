@@ -25,7 +25,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // verifier la conformite du mot de passe utilisation de la fonction (password_verify)
         if(password_verify($mdp, $userInfos['mdp'])){
             $_SESSION['id_user'] = $userInfos['id'];
-            $_SESSION['statut'] = $userInfos['statut'];
+            $_SESSION['status'] = $userInfos['status'];
+            header("Location: http://localhost/marmitard");
         }else{ // cas ou les mot de passe ne correspondent pas
             echo "mot de passe incorrect!";
         }

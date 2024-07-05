@@ -46,4 +46,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $req->execute([$_SESSION['id_user'], $_GET['id']]);
     }
     header("Location: http://localhost/marmitard");
+}elseif(isset($_GET['update_id'])){
+    // etablir la connexion avec la base de donnees
+    $dbConnexion = dbConnexion();
+    // preparer la requete pour ajouter le like
+    $req = $dbConnexion->prepare("UPDATE recettes SET statut = ? WHERE id = ?");
+    // executer la requete
+    $req->execute([1, $_GET['update_id']]);
+    // rediriger vers la page d'accueil
+    header("Location: http://localhost/marmitard");
 }
