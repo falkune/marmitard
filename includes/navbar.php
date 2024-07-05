@@ -57,7 +57,7 @@ define("BASE_URL", "http://localhost/marmitard/");
                     <a href="<?= BASE_URL ?>views/register.php" class="btn">Sign up</a>
                     <a href="<?= BASE_URL ?>views/login.php" class="btn">Sign in</a>
                 <?php } else { ?>
-                    <a href="#" class="btn">Logout</a>
+                    <a href="../controller/login_controller.php?action=logout" class="btn">Logout</a>
                 <?php } ?>
             </form>
             </div>

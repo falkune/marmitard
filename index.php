@@ -16,8 +16,8 @@ require_once "includes/navbar.php";
             <h5 class="card-title"><?= $rec['nom_recette'] ?></h5>
             <!-- affichage du like -->
             <p>
-                <a href="../controller/detail_recette_controller.php?id=<?= $rec['id_recette'] ?>">
-                    <span><i class="fa-regular fa-thumbs-up"></i></span>
+                <a href="controller/detail_recette_controller.php?id=<?= $rec['id_recette'] ?>">
+                    <span><i class="fa-regular fa-thumbs-up"></i><?= $rec['nb_like'] ?></span>
                 </a>
             </p>
             <!-- affichage de la note -->

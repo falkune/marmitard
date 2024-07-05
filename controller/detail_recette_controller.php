@@ -4,7 +4,7 @@ session_start();
 // inclure le fichier permettant d'assurer la connexion avec la base de donnees
 require_once("../includes/db_connexion.php");
 
-if(isset($_SERVER['REQUEST_METHOD']) == "POST"){
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $note = $_POST['note'];
     $idRecette = $_POST['id'];
 

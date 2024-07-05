@@ -30,6 +30,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
+}elseif(isset($_GET['logout'])){
+    // rediriger vers login.php
+    header("Location: http:lllocalhost/marmitard");
 }else{
     // rediriger vers login.php
     header("Location: ../views/login.php");
