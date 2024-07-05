@@ -34,8 +34,8 @@ require_once "../includes/navbar.php";
       <div class="modal-body">
         <form action="../controller/detail_recette_controller.php" method="post">
             <input type="text" name="id" value="<?= $recette['id'] ?>" hidden>
-            <input type="number" name="note">
-            <button type="button" class="btn btn-primary">Valider</button>
+            <input type="number" name="note" max="10" min="0">
+            <button class="btn btn-primary">Valider</button>
         </form>
       </div>
       <div class="modal-footer">
