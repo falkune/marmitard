@@ -1,6 +1,6 @@
 <?php
 // fonction prmettant de se connecter a la base de donnees
-define("SERVER_NAME", "mysql:host=localhost");
+define("SERVER_NAME", "mysql:host=localhost;port=3306");
 define("DB_NAME", "marmitard");
 define("DB_USER_NAME", "root");
 define("DB_USER_PASSWORD", "root");

@@ -9,7 +9,7 @@ if(isset($_SERVER['REQUEST_METHOD']) == "POST"){
     $idRecette = $_POST['id'];
 
     // verifier si l'utilisateur qui veux mettre une note est authentifier
-    if(!isset($_SESSION['id_user'])){
+    if(isset($_SESSION['id_user'])){
         // etablir la connexion avec la base de donnees
         $dbConnexion = dbConnexion();
         // preparer une premiere requete qui verifie si cet utilisateur a deja notté cette recette
@@ -30,4 +30,20 @@ if(isset($_SERVER['REQUEST_METHOD']) == "POST"){
         // rediriger vers login.php
         header("Location: http://localhost/marmitard/views/login.php");
     }
+}else if(isset($_GET['id'])){
+    // etablir la connexion avec la base de donnees
+    $dbConnexion = dbConnexion();
+    // preparer une premiere requete qui verifie si cet utilisateur a deja liker cette recette
+    $request = $dbConnexion->prepare("SELECT id FROM likes WHERE id_user = ? AND id_recette = ?");
+    // executer la requete
+    $request->execute([$_SESSION['id_user'], $_GET['id']]);
+    // recuperer le resultat dans un tableau
+    $resultat = $request->fetch();
+    if(empty($resultat)){ // si le tableau $resultat est vide
+        // preparer la requete pour ajouter le like
+        $req = $dbConnexion->prepare("INSERT INTO likes (id_user, id_recette) VALUES(?,?)");
+        // executer la requete
+        $req->execute([$_SESSION['id_user'], $_GET['id']]);
+    }
+    header("Location: http://localhost/marmitard");
 }

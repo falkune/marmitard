@@ -19,7 +19,7 @@ function getValidatedRecette(){
     // etablir la connexion avec la base de donnees
     $dbConnexion = dbConnexion();
     // preparer la requete qui permet de recuperer la liste des categories
-    $request = $dbConnexion->prepare("SELECT * FROM recettes WHERE statut = ?");
+    $request = $dbConnexion->prepare("SELECT recettes.nom as nom_recette, recettes.id AS id_recette, recettes.photos AS photos, AVG(notes.note) AS moyenne FROM recettes LEFT JOIN notes ON recettes.id = notes.id_recette WHERE recettes.statut = ? GROUP BY recettes.id");
     // executer la requete
     $request->execute([1]);
     // recuperer le resultat de le requete dans un tableau 
