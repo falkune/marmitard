@@ -29,24 +29,18 @@ define("BASE_URL", "http://localhost/marmitard/");
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>">Home</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-                </li>
+                
                 <!-- la balise li suivante doit etre visible unique si un utilisateur est authentifie -->
                 <?php if(isset($_SESSION['id_user'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>views/ajout_recette.php">Ajouter une recette</a>
+                    </li>
+                <?php } ?>
+
+                <!-- cette partie doit etre visble uniquement si l'utilisateur est un Admin -->
+                <?php if(isset($_SESSION['id_user']) && $_SESSION['statut'] == "Admin"){ ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>views/ajout_recette.php">Ajouter une recette</a>
                     </li>
@@ -57,7 +51,7 @@ define("BASE_URL", "http://localhost/marmitard/");
                     <a href="<?= BASE_URL ?>views/register.php" class="btn">Sign up</a>
                     <a href="<?= BASE_URL ?>views/login.php" class="btn">Sign in</a>
                 <?php } else { ?>
-                    <a href="../controller/login_controller.php?action=logout" class="btn">Logout</a>
+                    <a href="<?= BASE_URL ?>controller/login_controller.php?action=logout" class="btn">Logout</a>
                 <?php } ?>
             </form>
             </div>

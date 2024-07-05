@@ -25,33 +25,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // verifier la conformite du mot de passe utilisation de la fonction (password_verify)
         if(password_verify($mdp, $userInfos['mdp'])){
             $_SESSION['id_user'] = $userInfos['id'];
+            $_SESSION['statut'] = $userInfos['statut'];
         }else{ // cas ou les mot de passe ne correspondent pas
             echo "mot de passe incorrect!";
         }
     }
 
-}elseif(isset($_GET['logout'])){
+}elseif(isset($_GET['action'])){
+    session_destroy();
     // rediriger vers login.php
-    header("Location: http:lllocalhost/marmitard");
+    header("Location: http://localhost/marmitard");
 }else{
     // rediriger vers login.php
     header("Location: ../views/login.php");
 }
-
-// tableau associatif
-// $eleve = [
-//     "nom" => "Kadima",s
-//     "prenom" => "Flory",
-//     "age" => 67,
-// ];
-// $eleve["adresse"] = "10 rue de la bontee";
-
-// $eleve = [
-//     "nom" => "Kadima",
-//     "prenom" => "Flory",
-//     "age" => 67,
-//     "adresse" => "10 rue de la bontee"
-// ];
-
-
-// echo $eleve["nom"];
