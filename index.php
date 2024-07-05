@@ -16,7 +16,7 @@ require_once "includes/navbar.php";
             <h5 class="card-title"><?= $rec['nom'] ?></h5>
             <span><i class="fa-regular fa-thumbs-up"></i></span>
             <span><i class="fa-solid fa-star"></i></span>
-            <a href="#" class="btn btn-primary">Voir plus</a>
+            <a href="views/details_recette.php?id=<?= $rec['id'] ?>" class="btn btn-primary">Voir plus</a>
         </div>
         </div>
     <?php } ?>
